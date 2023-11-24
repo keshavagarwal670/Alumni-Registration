@@ -3,35 +3,61 @@
 import React, { useState } from 'react';
 import "./login.css"
 
-const LoginForm = ({ handleLogin }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add your login logic here
-    console.log(`Logging in with username: ${username}, password: ${password}`);
-    // You may want to send an API request to authenticate the user
+const LoginForm = ({ startLogin }) => {
+  // States for tracking form input which are the email address and password
+  const [ email, setEmail ] = useState('')
+  const [ password, setPassword ] = useState('')
 
-    if (typeof handleLogin === 'function') {
-      // Call the handleLogin function to update the parent state
-      handleLogin();
-    } else {
-      console.error('handleLogin is not a function');
+  // onSubmit event handler of this form
+  const handleLogin = (event) => {
+    // Preventing default submission of the form to the action attribute URL
+    event.preventDefault()
+
+    const credentials = {
+      email, password
     }
+
+    // Calling startLogin with the provided credentials that will make a call to the backend
+    startLogin(credentials)
+
+    // Reset the form state, i.e. the text that's on the username and password text boxes to empty strings
+    setEmail('')
+    setPassword('')
   };
+
+// const LoginForm = ({ handleLogin }) => {
+//   const [email, setEmail] = useState('');
+//   const [password, setPassword] = useState('');
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     // Add your login logic here
+//     const credentials = {email , password};
+//     console.log(`Logging in with username: ${email}, password: ${password}`);
+//     // You may want to send an API request to authenticate the user
+
+//     if (typeof handleLogin === 'function') {
+//       // Call the handleLogin function to update the parent state
+//       handleLogin(credentials);
+//     } else {
+//       console.error('handleLogin is not a function');
+//     }
+//     setEmail('')
+//     setPassword('')
+//   };
 
   return (
     <div className="login-form-container">
       <h2 className="login-heading">Login</h2>
-      <form className="form" onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleLogin}>
         <label className="form-label">
-          User Name : 
+          Email ID : 
           <input
             className="form-input"
             type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your username"
           />
         </label>

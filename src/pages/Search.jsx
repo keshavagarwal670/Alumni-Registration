@@ -21,21 +21,17 @@ const Main = () => {
           <form className="form" >
             <label className="form-label">
               User Name : 
-              <input
-                className="form-input"
-                type="text"
-                
-                placeholder="Enter your username"
-              />
+              <select>
+                 <option value="Keshav"></option>
+                 <option value="Adarsh"></option>
+              </select>
             </label>
             <label className="form-label">
               Roll No. :
-              <input
-                className="form-input"
-                type="password"
-                
-                placeholder="Enter your password"
-              />
+              <select>
+                 <option value="MT2023114"></option>
+                 <option value="MT2023114"></option>
+              </select>
             </label>
             <button className="form-button" type="submit" onClick={handleSearchClick}>
               Search
