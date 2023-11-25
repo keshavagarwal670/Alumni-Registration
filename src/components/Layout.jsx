@@ -1,7 +1,7 @@
 //import Header from './Header'
 import Footer from './Footer'
 import Main from '../pages/Main'
-
+//import Header from './Header'
 
 
 const Layout = () => {

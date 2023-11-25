@@ -22,7 +22,7 @@ const Contact = () => {
   // Handle Contact Form Submission
   const handleContactSubmit = (e) => {
     e.preventDefault();
-    console.log('Contact Form Submission:', { contactName, contactEmail, contactMessage });
+    //console.log('Contact Form Submission:', { contactName, contactEmail, contactMessage });
     // Add your logic to send contact form data to the server or external service
   };
 
@@ -43,78 +43,150 @@ const Contact = () => {
   return (
     
     <div className="forms-container">
-      <div>
-              <form class="row g-3">
-          <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Email</label>
-            <input type="email" class="form-control" id="inputEmail4"/>
+      <form onSubmit={handleContactSubmit}>
+      <div className="contact-form">
+        <h2>Contact Form</h2>
+        
+          {/* Contact Form Fields */}
+          {/* ... */}
+          
+          <div className="col-md-6">
+            <label  className="form-label">Email</label>
+            <input type="email" className="form-control" id="inputEmail4"/>
           </div>
-          <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">Password</label>
-            <input type="password" class="form-control" id="inputPassword4"/>
+          <div className="col-md-6">
+            <label  className="form-label">Password</label>
+            <input type="password" className="form-control" id="inputPassword4"/>
           </div>
-          <div class="col-12">
-            <label for="inputAddress" class="form-label">Address</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St"/>
+          <div className="col-12">
+            <label  className="form-label">Address</label>
+            <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St"/>
           </div>
-          <div class="col-12">
-            <label for="inputAddress2" class="form-label">Address 2</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"/>
+          <div className="col-12">
+            <label  className="form-label">Address 2</label>
+            <input type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"/>
           </div>
-          <div class="col-md-6">
-            <label for="inputCity" class="form-label">City</label>
-            <input type="text" class="form-control" id="inputCity"/>
+          <div className="col-md-6">
+            <label  className="form-label">City</label>
+            <input type="text" className="form-control" id="inputCity"/>
           </div>
-          <div class="col-md-4">
-            <label for="inputState" class="form-label">State</label>
-            <select id="inputState" class="form-select">
-              <option selected>Choose...</option>
+          <div className="col-md-4">
+            <label  className="form-label">State</label>
+            <select id="inputState" className="form-select" defaultValue="">
+              <option >Choose...</option>
               <option>...</option>
             </select>
           </div>
-          <div class="col-md-2">
-            <label for="inputZip" class="form-label">Zip</label>
-            <input type="text" class="form-control" id="inputZip"/>
-          </div>
-          <div class="col-12">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="gridCheck"/>
-              <label class="form-check-label" for="gridCheck">
-                Check me out
-              </label>
-            </div>
-          </div>
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary">Sign in</button>
-          </div>
-        </form>
-      </div>
-      <div className="contact-form">
-        <h2>Contact Form</h2>
-        <form onSubmit={handleContactSubmit}>
-          {/* Contact Form Fields */}
-          {/* ... */}
-          <button type="submit">Submit Contact Form</button>
-        </form>
+          
+          
+        
+        
       </div>
 
       <div className="education-form">
         <h2>Education Form</h2>
-        <form onSubmit={handleEducationSubmit}>
+        
           {/* Education Form Fields */}
           {/* ... */}
-          <button type="submit">Submit Education Form</button>
-        </form>
+                          <div className="col-md-6">
+                  <label  className="form-label">Degree</label>
+                  <input type="text" className="form-control" id="inputDegree" />
+                </div>
+                <div className="col-md-6">
+                  <label  className="form-label">University</label>
+                  <input type="text" className="form-control" id="inputUniversity" />
+                </div>
+                <div className="col-md-6">
+                  <label  className="form-label">Graduation Year</label>
+                  <input type="text" className="form-control" id="inputGraduationYear" />
+                </div>
+                <div className="col-md-6">
+                  <label  className="form-label">Field of Study</label>
+                  <input type="text" className="form-control" id="inputFieldOfStudy" />
+                </div>
+                <div className="col-12">
+                  <label  className="form-label">Address</label>
+                  <input type="text" className="form-control" id="inputAddress3" placeholder="1234 Main St" />
+                </div>
+                <div className="col-12">
+                  <label  className="form-label">Address 2</label>
+                  <input type="text" className="form-control" id="inputAddress4" placeholder="Apartment, studio, or floor" />
+                </div>
+                <div className="col-md-6">
+                  <label  className="form-label">City</label>
+                  <input type="text" className="form-control" id="inputCity1" />
+                </div>
+                <div className="col-md-4">
+                  <label  className="form-label">State</label>
+                  <select id="inputState1" className="form-select" defaultValue="">
+                    <option >Choose...</option>
+                    <option>...</option>
+                  </select>
+                </div>
+                
+                
+        
       </div>
 
       <div className="experience-form">
         <h2>Experience Form</h2>
-        <form onSubmit={handleExperienceSubmit}>
+        
           {/* Experience Form Fields */}
           {/* ... */}
-          <button type="submit">Submit Experience Form</button>
-        </form>
-      </div>
+                  <div className="col-md-6">
+                    <label  className="form-label">Position</label>
+                    <input type="text" className="form-control" id="inputPosition" />
+                  </div>
+                  <div className="col-md-6">
+                    <label  className="form-label">Company</label>
+                    <input type="text" className="form-control" id="inputCompany" />
+                  </div>
+                  <div className="col-md-6">
+                    <label  className="form-label">Location</label>
+                    <input type="text" className="form-control" id="inputLocation" />
+                  </div>
+                  <div className="col-md-6">
+                    <label  className="form-label">Start Date</label>
+                    <input type="date" className="form-control" id="inputStartDate" />
+                  </div>
+                  <div className="col-md-6">
+                    <label  className="form-label">End Date</label>
+                    <input type="date" className="form-control" id="inputEndDate" />
+                  </div>
+                  <div className="col-12">
+                    <label  className="form-label">Responsibilities</label>
+                    <textarea className="form-control" id="inputResponsibilities" rows="3"></textarea>
+                  </div>
+                  <div className="col-12">
+                    <label  className="form-label">Achievements</label>
+                    <textarea className="form-control" id="inputAchievements" rows="3"></textarea>
+                  </div>
+                  <div className="col-12">
+                    <label  className="form-label">Address</label>
+                    <input type="text" className="form-control" id="inputAddres5" placeholder="1234 Main St" />
+                  </div>
+                  <div className="col-12">
+                    <label  className="form-label">Address 2</label>
+                    <input type="text" className="form-control" id="inputAddress6" placeholder="Apartment, studio, or floor" />
+                  </div>
+                  <div className="col-md-6">
+                    <label  className="form-label">City</label>
+                    <input type="text" className="form-control" id="inputCity2" />
+                  </div>
+                  <div className="col-md-4">
+                    <label  className="form-label">State</label>
+                    <select id="inputState2" className="form-select" defaultValue="">
+                      <option >Choose...</option>
+                      <option>...</option>
+                    </select>
+                  </div>
+                  
+        </div>
+        
+        <button type="submit">Submit Form</button>
+        
+        
+      </form>
     </div>
   );
 };

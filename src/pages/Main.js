@@ -3,10 +3,12 @@
 import React, { useState,useEffect } from 'react';
 import Header from '../components/Header';
 import LoginForm from './LoginForm';
-//import Search from './Search';
+import Search from './Search';
 import Notification from './Notification';
+// import './notification.css'
 //import login from './login'
 import loginService from './login'
+//import { Navbar } from 'reactstrap';
 
 const Main = () => {
   //const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -51,9 +53,19 @@ const Main = () => {
 
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
+      
       <main>
-          <Notification notification={notification} type={notificationType} />
+      
+
+          
+          {user === null && (
+  <div className='text-center page-header p-2 regular-text-shadow regular-shadow'>
+    <div className='display-4 font-weight-bold' style={{ color: '#fff', backgroundColor: 'blue', padding: '10px', borderRadius: '5px' }}>
+      Academia - Payments
+    </div>
+  </div>
+)}
 
           {
             /* Show Login form when no login has happened */
@@ -61,11 +73,17 @@ const Main = () => {
             <LoginForm startLogin={handleLogin}/>
           }
           
-          {
-            /* Show NavBar when login has happened */
-            user !== null && 
-            <div user={user} setUser={setUser}/>
-          }
+          {user !== null && (
+             <div>
+               <Header user={user} setUser={setUser}/>
+               <Search />
+               
+               {/* <Profile /> */}
+               {/* <Notifications /> */}
+               {/* Add more components as needed */}
+             </div>
+           )}
+           <Notification notification={notification} type={notificationType} />
       </main>
       {/* Add other components or content as needed */}
     </div>
