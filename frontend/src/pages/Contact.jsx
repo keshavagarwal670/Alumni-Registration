@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import './contact.css';
 import axios from 'axios';
-
+import Notification from './Notification';
 // ... (other imports and code)
 
 const Contact = () => {
@@ -29,6 +29,18 @@ const Contact = () => {
         [name]: value
     }));
 };
+const [ notification, setNotification ] = useState(null)
+const [ notificationType, setNotificationType ] = useState(null)
+
+const notificationHandler = (message, type) => {
+  setNotification(message)
+  setNotificationType(type)
+
+  setTimeout(() => {
+    setNotificationType(null)
+    setNotification(null)
+  }, 3000)
+}
 
   const [organizations, setOrganizations] = useState([]);
   const accessToken = JSON.parse(localStorage.getItem('loggedInUser')).access_token;
@@ -96,12 +108,14 @@ const Contact = () => {
            Authorization: `Bearer ${accessToken}`
         },
       });
-
+      notificationHandler(`Registration Successful`, 'Success');
       console.log('Contact Form Submitted:', response.data);
 
       // Add your logic for handling the response, such as showing a success message, updating state, etc.
     } catch (error) {
+      notificationHandler(`Alumni is Already Registered`, 'Failure');
       console.error('Error submitting contact form:', error);
+
 
       // Handle specific error cases, if needed
     }
@@ -188,6 +202,7 @@ const Contact = () => {
 
         <button type="submit">Submit Form</button>
       </form>
+      <Notification notification={notification} type={notificationType} />
     </div>
   );
 };

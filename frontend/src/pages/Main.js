@@ -19,9 +19,6 @@ const Main = () => {
   const [ notification, setNotification ] = useState(null)
   const [ notificationType, setNotificationType ] = useState(null)
 
-  // Create a notification at the top of the screen with given message for 10 seconds 
-  // Notifications are of two types, "error" and "success"
-  // The appearance of these two notifications can be adjusted via the index.css file
   const notificationHandler = (message, type) => {
     setNotification(message)
     setNotificationType(type)
@@ -38,7 +35,7 @@ const Main = () => {
         setUser(userObject)
         window.localStorage.setItem('loggedInUser', JSON.stringify(userObject))
         
-        notificationHandler(`Logged in successfully as ${userObject.firstName}`, 'success')
+        notificationHandler(`Logged in successfully as ${userObject.first_name}`, 'success')
        // navigate('/search');
       }
       catch (exception) {
@@ -82,12 +79,12 @@ const Main = () => {
                
                {/* <Profile /> */}
                {/* <Notifications /> */}
-               {/* Add more components as needed */}
+               
              </div>
            )}
            <Notification notification={notification} type={notificationType} />
       </main>
-      {/* Add other components or content as needed */}
+      
     </div>
   );
 };

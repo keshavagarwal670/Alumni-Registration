@@ -1,85 +1,4 @@
-// // Search.js
-
-// import React, { useState } from 'react';
-// import Contact from './Contact';
-// import './search.css';
-
-// const Search = () => {
-//   const [selectedUserName, setSelectedUserName] = useState('');
-//   const [selectedgradyear, setSelectedgradyear] = useState('');
-//   const [showContactForm, setShowContactForm] = useState(false);
-
-//   const handleSearchClick = () => {
-//     // Add your validation logic here
-//     if (!selectedUserName || !selectedgradyear) {
-//       alert('Please select both User Name and Roll No.');
-//       return;
-//     }
-
-//     // If validation passes, proceed to toggle the showContactForm state
-//     setShowContactForm(!showContactForm);
-//   };
-
-//   return (
-//     <div>
-//       <div>
-//         {!showContactForm && (
-//           <div className="login-form-container">
-//             <h2 className="login-heading">Search</h2>
-//             <form className="form">
-//               <label className="form-label">
-//                 User Name:
-//                 <select
-//                   value={selectedUserName}
-//                   onChange={(e) => setSelectedUserName(e.target.value)}
-//                 >
-//                   <option value="" disabled hidden>
-//                     Select Your Name
-//                   </option>
-//                   <option value="Keshav">Keshav</option>
-//                   <option value="Adarsh">Adarsh</option>
-//                 </select>
-//               </label>
-
-//               <label className="form-label">
-//                 Graduation Year.:
-//                 <select
-//                   value={selectedgradyear}
-//                   onChange={(e) => setSelectedgradyear(e.target.value)}
-//                 >
-//                   <option value="" disabled hidden>
-//                     Select Your Graduation Year
-//                   </option>
-//                   <option value="MT2023112">MT2023112</option>
-//                   <option value="MT2023113">MT2023113</option>
-//                   <option value="MT2023114">MT2023114</option>
-//                   <option value="NONE">NONE</option>
-//                 </select>
-//               </label>
-//               <button
-//                 className="form-button"
-//                 type="button" // Change to type="button" to prevent form submission
-//                 onClick={handleSearchClick}
-//               >
-//                 Search
-//               </button>
-//             </form>
-//           </div>
-//         )}
-
-//         {showContactForm && <Contact />}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Search;
-
-
-
-
-
-
+// Search.js
 
 import React, { useState } from 'react';
 import Contact from './Contact';
@@ -91,7 +10,7 @@ import axios from 'axios';
 const Search = () => {
   const [grad_year, setGYear] = useState('');
   const [fname, setFname] = useState('');
-  const [lname, setLname] = useState('');
+  //const [lname, setLname] = useState('');
   const [alumniData, setAlumniData] = useState([]);
   const [show, setShow] = useState(false);
   const [noRecord, setNoRecord] = useState(false);
@@ -107,10 +26,6 @@ const Search = () => {
 
   const handleChangeFName = (event) => {
     setFname(event.target.value);
-  };
-
-  const handleChangeLName = (event) => {
-    setLname(event.target.value);
   };
 
   const getAlumniDetails = async () => {
@@ -181,11 +96,6 @@ const Search = () => {
           <Form.Control type="text" placeholder="Enter First Name" onChange={handleChangeFName} value={fname} />
         </Form.Group>
 
-        {/* <Form.Group className="mb-3" controlid="lname">
-          <Form.Label>Last Name</Form.Label>
-          <Form.Control type="text" placeholder="Enter Last Name" onChange={handleChangeLName} value={lname} />
-        </Form.Group> */}
-
         <Button className="mb-3" controlid="search_button" variant="primary" onClick={getAlumniDetails}>
           Search
         </Button>
@@ -224,14 +134,6 @@ const Search = () => {
           </tbody>
         </table>
       ) : null}
-
-      {/* {register ? <Contact student_id={propertyVal} /> : null} */}
-
-      {/* <Button className="mb-3" controlId="search_button" variant="primary" onClick={toggleUML}> */}
-        {/* Click here to see/hide UML Diagram */}
-      {/* </Button> */}
-      {/* <br /> */}
-      {/* {uml ? <img src={umlDiagram} alt="uml diagram" /> : null} */}
       
     </div>
   );

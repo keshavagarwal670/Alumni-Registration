@@ -26,26 +26,6 @@ const LoginForm = ({ startLogin }) => {
     setPassword('')
   };
 
-// const LoginForm = ({ handleLogin }) => {
-//   const [email, setEmail] = useState('');
-//   const [password, setPassword] = useState('');
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     // Add your login logic here
-//     const credentials = {email , password};
-//     console.log(`Logging in with username: ${email}, password: ${password}`);
-//     // You may want to send an API request to authenticate the user
-
-//     if (typeof handleLogin === 'function') {
-//       // Call the handleLogin function to update the parent state
-//       handleLogin(credentials);
-//     } else {
-//       console.error('handleLogin is not a function');
-//     }
-//     setEmail('')
-//     setPassword('')
-//   };
 
   return (
 

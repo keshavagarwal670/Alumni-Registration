@@ -64,7 +64,6 @@ public class AlumniService {
     }
 
     public void saveAlumni(AddAlumniRequest data) {
-
         Optional<Student> student = studentRepository.findById(data.getStudentId());
 
         if(student.isEmpty()) {

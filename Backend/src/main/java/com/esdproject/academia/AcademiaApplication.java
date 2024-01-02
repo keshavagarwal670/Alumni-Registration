@@ -72,8 +72,19 @@ public class AcademiaApplication {
 							.build();
 
 
-					studentRepository.save(student);
+					Student student2 = Student.builder()
+							.rollNumber("2023003")
+							.photographPath("/path/to/photo.jpg")
+							.cgpa(3.6)
+							.totalCredits(120)
+							.graduationYear(2022)
+							.domain(1) // Assuming '1' represents a domain ID
+							.specialisation(2)
+							.user(user4)// Assuming '5' represents a placement ID
+							.build();
 
+					studentRepository.save(student);
+					studentRepository.save(student2);
 //					Alumni alumni = Alumni.builder()
 //							.email("example@example.com")
 //							.contactNumber("1234567890")
